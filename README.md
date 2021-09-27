@@ -7,4 +7,7 @@ source: [Maximum Likelihood Estimation in Real Life : Optimizing Study Time](htt
 - [ ] Pick ioslides/slidy/real.js as the rmarkdown presentation format.
 - [ ] Possible extensions: 
   - [ ] from SLR to MLR, to GLM?
-  - [ ] maybe we can introduce some packages like `[mle](https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html)` which specifies doing estimation calculation?
+  - [ ] maybe we can introduce some packages like [`mle`](https://stat.ethz.ch/R-manual/R-patched/library/stats4/html/mle.html) which specifies doing estimation calculation?
+
+
+
