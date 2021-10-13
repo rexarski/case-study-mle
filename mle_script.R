@@ -23,22 +23,22 @@ style_dir()
 # we extract the train.csv and only pay attention to one variable LotArea and the response SalePrice
 
 dat <- read_csv("train.csv") %>%
-    select(LotArea, SalePrice)
+  select(LotArea, SalePrice)
 
-ggplot(dat, aes(x=LotArea, y=SalePrice)) +
-    geom_point(alpha=.2, size=.5, colour = "grey20")
+ggplot(dat, aes(x = LotArea, y = SalePrice)) +
+  geom_point(alpha = .2, size = .5, colour = "grey20")
 
 # no so good, try do some transformation(s) (not required though)
-# but always do this, cuz the more "normal" our variables are, the "normal" fit the model will be (it's also one of the assumptions of a linear model and you can always use q-q plot to check that). 
+# but always do this, cuz the more "normal" our variables are, the "normal" fit the model will be (it's also one of the assumptions of a linear model and you can always use q-q plot to check that).
 
-ggplot(dat, aes(x=log(LotArea), y=log(SalePrice))) +
-    geom_point(alpha=.2, size=.5, colour = "grey20")
+ggplot(dat, aes(x = log(LotArea), y = log(SalePrice))) +
+  geom_point(alpha = .2, size = .5, colour = "grey20")
 
 
 lm_mod <- linear_reg() %>%
-    set_engine("lm")
+  set_engine("lm")
 lm_fit <- lm_mod %>%
-    fit(log(SalePrice) ~ log(LotArea), data = dat)
+  fit(log(SalePrice) ~ log(LotArea), data = dat)
 lm_fit
 
 tidy(lm_fit)
@@ -50,7 +50,7 @@ tidy(lm_fit)
 # how are we gonna get those two estimates?
 
 
-# (blah blah blah, go through the mathematical proof part) 
+# (blah blah blah, go through the mathematical proof part)
 # the core idea is to take the likelihood of all observations (which is the product of all pdfs of these observations). And remember, the we "assume" the data is normally distributed, that's the reason why we can use normal distribution as the pdf here.
 # then, we take the log of the likelihood. Why? because of calculus. recall that if we want to find the maximizer/minimizer of a product of some polynomials, very computationally expensive. But if we take the log, the product of polynomials will turn to the sum of polynomials.
 # eventually, finding the maximizer/minimizer == solve for the equation where (first derivative == 0).
@@ -58,7 +58,47 @@ tidy(lm_fit)
 beta_1_est <- cov(log(dat$LotArea), log(dat$SalePrice)) / var(log(dat$LotArea))
 beta_1_est
 
-beta_0_est <- mean(log(dat$SalePrice))-beta_1_est*mean(log(dat$LotArea))
+beta_0_est <- mean(log(dat$SalePrice)) - beta_1_est * mean(log(dat$LotArea))
 beta_0_est
 
 # then we are done.
+
+##################################################################
+
+p1 <- ggplot(dat, aes(x=log(LotArea), y=log(SalePrice))) +
+    geom_point(alpha=.2, color = "royalblue") +
+    geom_smooth(formula = y~x, color = "red") +
+    theme_minimal() +
+    labs(
+        title = "SalePrice vs LotArea",
+        subtitle = "Simple Linear Regression",
+        x = "LotArea",
+        y = "SalePrice"
+    ) +
+    theme(
+        text = element_text(family = "Roboto Condensed"),
+        title = element_text(size = 16),
+        plot.subtitle = element_text(size = 14),
+        plot.caption = element_text(size = 10),
+        axis.title = element_text(size = 14),
+        axis.text = element_text(size = 12),
+        panel.grid.minor.x = element_blank()
+    )
+
+ggsave(p1, filename = "p1.png", device = "png", height = 9, width = 11, dpi = 100, bg="white")
+
+dat <- dat %>%
+    mutate(
+        `log LotArea` = log(LotArea),
+        `log SalePrice` = log(SalePrice),
+        `Estimated SalePrice` = beta_0_est+beta_1_est*`log LotArea`)
+view(dat)
+
+homebrew_slr <- function(x, y){
+  beta_1_est <- cov(x, y) / var(x)
+  beta_0_est <- mean(y) - beta_1_est * mean(x)
+  cat(paste0("Beta 0 estimate: ", beta_0_est, "\n",
+               "Beta 1 estimate: ", beta_1_est, "\n"))
+  return(c(beta_0_est, beta_1_est))
+}
+homebrew_slr(dat$`log LotArea`, dat$`log SalePrice`)
