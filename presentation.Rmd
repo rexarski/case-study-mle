@@ -99,7 +99,7 @@ Here $\mu_y=\mu_{\beta_0}+\mu_{\beta_1 x}+\mu_\sigma = \beta_0+\beta_1 \mu_x + \
 
 According to the hypothesis 3, $\mu_\sigma =0$. Therefore, $\mu_y=\beta_0+\beta_1\mu_x$.
 
-$$f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-(\beta_0+\beta_1x_i))^2}{2\sigma^2}}$$
+$$f(y|x_i,\beta_0,\beta_1,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-(\beta_0+\beta_1x_i))^2}{2\sigma^2}}$$
 
 ---
 
@@ -131,7 +131,7 @@ In order to find $\beta_0$ and $\beta_1$, which maximize $L(\beta_0,\beta_1,x_i;
 
 $$
 \begin{split}
-&\frac{\partial L}{\partial \beta_1}=2\sum_{i=1}^{n}(y_i-\beta_0-\beta_1x_i)x_i=0\\
+&\frac{\partial L}{\partial \beta_0}=2\sum_{i=1}^{n}(y_i-\beta_0-\beta_1x_i)=0\\
 &\downarrow\\
 &\hat{\beta_0}=\frac{\sum_{i=1}^{n}y_i-\sum_{i=1}^{n}\beta_1x_i}{n}=\overline{y}-\beta_1\overline{x}
 \end{split}
