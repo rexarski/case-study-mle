@@ -25,8 +25,11 @@ pacman::p_load(tidyverse, tidymodels)
 
 # Introduction
 What is a Maximum Likelihood Estimation?
-- Maximum likelihood estimation (MLE) is a method of estimating the parameters of an assumed probability distribution, given some observed data.
-- If the likelihood function is differentiable, the derivative test for determining maxima can be applied.
+
+- Maximum likelihood estimation (MLE) is a method of estimating the parameters of an assumed probability distribution, given some observed data.
+
+- If the likelihood function is differentiable, the derivative test for determining maxima can be applied.
+
 - The ordinary least squares estimator maximizes the likelihood of the linear regression model.
 
 ![img](https://miro.medium.com/max/1332/1*I_ipLXJB6qMXOmEIk8bvdQ.png)
@@ -200,18 +203,6 @@ class: inverse, center, middle
 ---
 # Housing Prices (1)
 
-- The model in the article is a **Simple Linear Regression (SLR)** model, it only considers one variable and one continuous response.
-
---
-
-- However, an SLR model usually "over-simplifies" the real world. (It might be true for some extreme cases.) You see, a single factor does not lead to a certain result. This world does not operate like this.
-
---
-
-- For a more complex case, we might want to consider Multiple Linear Regression (MLR) with more than one variables. In some cases, a Generalized Linear Model is considered to fit the data. That is, of course, another topic we should discuss.
-
---
-
 - Let's just jump into a Kaggle data
 
 > data source: https://www.kaggle.com/c/home-data-for-ml-course
@@ -230,7 +221,7 @@ ggplot(dat, aes(x = LotArea, y = SalePrice)) +
 ---
 # Housing Prices (3)
 
-- no so good, try do some transformation(s) (not required though)
+- not so good, try do some transformation(s) (not required though)
 - but always do this, cuz the more "normal" our variables are, the "normal" fit the model will be (it's also one of the assumptions of a linear model and you can always use q-q plot to check that).
 
 ---
@@ -269,7 +260,6 @@ $$ \log(\text{SalePrice}) = \beta_0 + \beta_1 \times \log(\text{LotArea}) $$
 
 --
 
-- (blah blah blah, go through the mathematical proof part)
 - the core idea is to take the likelihood of all observations (which is the product of all pdfs of these observations). And remember, the we "assume" the data is normally distributed, that's the reason why we can use normal distribution as the pdf here.
 
 ---
@@ -381,6 +371,16 @@ DT::datatable(dat, options = list(pageLength = 7))
 class: inverse, center, middle
 
 # Summary
+
+---
+
+# Summary
+
+The model in the article is a Simple Linear Regression (SLR) model, it only considers one variable and one continuous response.
+
+However, an SLR model usually "over-simplifies" the real world. (It might be true for some extreme cases.) You see, a single factor does not lead to a certain result. This world does not operate like this.
+
+For a more complex case, we might want to consider Multiple Linear Regression (MLR) with more than one variables. In some cases, a Generalized Linear Model is considered to fit the data. That is, of course, another topic we should discuss.
 
 ---
 class: center, middle
