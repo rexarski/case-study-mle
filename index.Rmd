@@ -23,8 +23,18 @@ pacman::p_load(tidyverse, tidymodels)
 ```
 ---
 
-# Say something as an introduction
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+# Introduction
+What is a Maximum Likelihood Estimation?
+- Maximum likelihood estimation (MLE) is a method of estimating the parameters of an assumed probability distribution, given some observed data.
+- If the likelihood function is differentiable, the derivative test for determining maxima can be applied.
+- The ordinary least squares estimator maximizes the likelihood of the linear regression model.
+
+![img](https://www.google.com/search?q=probabilty+vs+liklihood&tbm=isch&ved=2ahUKEwj-18jDzNzzAhUJKVMKHSHoC5YQ2-cCegQIABAA&oq=probabilty+vs+liklihood&gs_lcp=CgNpbWcQAzoFCAAQgAQ6BggAEAoQGDoECAAQHjoGCAAQCBAeULxIWL26AmDcuwJoAHAAeACAAacBiAG8EJIBBDI2LjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=vu9xYf6AFYnSzAKh0K-wCQ&bih=732&biw=1440#imgrc=LwI70BrE7KPjtM)
+
+---
+# Introduction
+
+![img](data-plot.png)
 
 ---
 class: inverse, center, middle
@@ -33,9 +43,33 @@ class: inverse, center, middle
 
 ---
 
-# Say something about SLR
+# SLR
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This is the model that best describes the problem at hand
+
+![img](https://miro.medium.com/max/2880/1*Dg-eyQ-jVSh-GHK-5qdHvA.jpeg)
+
+In this equation,
+
+- Grade is an independent variable
+- Predictor is the study time.
+- The parameters, beta0 and beta1 are the coefficients
+
+---
+
+# SLR
+
+Fit a linear model to the dataset on any statistical software.
+
+![img](https://miro.medium.com/max/840/1*iGltLrgIZhFnakaYg4aH7A.jpeg)
+
+---
+
+# SLR
+
+![img](https://miro.medium.com/max/840/1*X-uJwkoQ4lyWEwVHckuoig.jpeg)
+
+Least Squares method was used to fit the model.
 
 ---
 
@@ -87,7 +121,7 @@ In order to find the $\beta_0, \beta_1$, which maximize $L(\beta_0,\beta_1,\sigm
 
 # Parameter Estimation
 
-According to the hypothesis 1, $y$ should be continuously and normally distributed.
+According to the hypothesis 1, 2 and 4, $y$ should be continuously and normally distributed.
 
 Therefore,
 
