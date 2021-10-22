@@ -29,7 +29,7 @@ What is a Maximum Likelihood Estimation?
 - If the likelihood function is differentiable, the derivative test for determining maxima can be applied.
 - The ordinary least squares estimator maximizes the likelihood of the linear regression model.
 
-![img](https://www.google.com/search?q=probabilty+vs+liklihood&tbm=isch&ved=2ahUKEwj-18jDzNzzAhUJKVMKHSHoC5YQ2-cCegQIABAA&oq=probabilty+vs+liklihood&gs_lcp=CgNpbWcQAzoFCAAQgAQ6BggAEAoQGDoECAAQHjoGCAAQCBAeULxIWL26AmDcuwJoAHAAeACAAacBiAG8EJIBBDI2LjGYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=vu9xYf6AFYnSzAKh0K-wCQ&bih=732&biw=1440#imgrc=LwI70BrE7KPjtM)
+![img](https://miro.medium.com/max/1332/1*I_ipLXJB6qMXOmEIk8bvdQ.png)
 
 ---
 # Introduction
